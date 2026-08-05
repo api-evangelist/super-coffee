@@ -1,0 +1,112 @@
+generated: '2026-08-05'
+method: searched
+source: https://www.drinksupercoffee.com/api/ucp/mcp
+docs: https://www.drinksupercoffee.com/agents.md
+note: >-
+  Cross-cutting semantics read from the live MCP tools/list inputSchemas and from
+  the storefront's published /llms.txt, /agents.md and /robots.txt. There is no
+  OpenAPI to derive from; every field below is observed in a document the store
+  actually serves.
+transport:
+  protocol: JSON-RPC 2.0 over HTTP POST (MCP)
+  endpoint: https://www.drinksupercoffee.com/api/ucp/mcp
+  content_type: application/json
+  accept: application/json, text/event-stream
+authentication:
+  style: anonymous for discovery, catalog, cart and checkout construction
+  agent_identity: >-
+    Every tool call requires meta.ucp-agent.profile, a URI identifying the calling
+    agent for UCP discovery. This is an agent identity assertion, not a credential.
+  customer_auth: OAuth 2.0 / OIDC via Shopify customer accounts - see authentication/super-coffee-authentication.yml
+idempotency:
+  supported: true
+  mechanism: request field
+  field: meta.idempotency-key
+  required: true
+  scope: complete_checkout
+  description: >-
+    complete_checkout requires meta.idempotency-key ("An idempotency key for
+    completing the checkout") in its inputSchema required list. This is the one
+    money-moving operation on the surface, and it is the only tool that mandates
+    the key. Cart and checkout construction tools are naturally idempotent by
+    resource id.
+  evidence: mcp/super-coffee-mcp-tools.json - complete_checkout.inputSchema.properties.meta.required
+    includes idempotency-key
+pagination:
+  style: cursor
+  applies_to: [search_catalog]
+  request_object: catalog.pagination
+  params:
+    cursor: Pagination cursor (string)
+    limit: Number of results to return (integer, default 10, minimum 1)
+buyer_context:
+  object: context
+  fields:
+  - address_country: 2-letter ISO 3166-1 alpha-2 country, for accurate pricing and
+      availability
+  - currency: buyer currency
+  guidance: /llms.txt instructs agents to pass context.address_country and context.currency
+identifiers:
+  format: Shopify global ids (gid://shopify/<Type>/<id>)
+  examples:
+  - gid://shopify/Checkout/abc123
+  - gid://shopify/Product/...
+human_approval:
+  required_for: [complete_checkout]
+  rule: >-
+    Both /llms.txt and /robots.txt state that agents must not complete checkout,
+    payment or order placement without an explicit, contemporaneous human approval
+    step. Agents that cannot obtain approval at the moment of payment are directed
+    to route the purchase through Shop Pay via https://shop.app/SKILL.md.
+  source: https://www.drinksupercoffee.com/robots.txt
+rate_limiting:
+  documented: true
+  scope: per IP
+  signal: HTTP 429
+  guidance: 'Back off on 429 responses (stated in /llms.txt under "Important Rules").'
+  headers_documented: false
+versioning:
+  scheme: dated protocol version
+  current: '2026-04-08'
+  supported: ['2026-04-08', '2026-01-23']
+  negotiation: version-pinned profiles at /.well-known/ucp/<version>
+  see: lifecycle/super-coffee-lifecycle.yml
+errors:
+  envelope: JSON-RPC 2.0 error object
+  problem_details: false
+  documented_catalog: false
+  note: >-
+    complete_checkout returns "order ID, Thank You Page URL, or any errors
+    encountered" but the store publishes no enumerated error or decline code
+    reference, so no errors/ artifact was written.
+read_only_surface:
+  description: >-
+    /llms.txt also publishes an unauthenticated read-only HTTP surface for agents
+    that only need catalog data. robots.txt directs transacting agents to UCP/MCP
+    instead of the AJAX endpoints.
+  endpoints:
+  - GET /collections/all
+  - GET /products/{handle}
+  - GET /products/{handle}.json
+  - GET /collections/{handle}
+  - GET /collections/{handle}/products.json
+  - GET /search?q={query}&type=product
+  - GET /sitemap.xml
+  disallowed_for_agents:
+  - /cart.js
+  - /recommendations/products
+cross_links:
+  authentication: authentication/super-coffee-authentication.yml
+  scopes: scopes/super-coffee-scopes.yml
+  lifecycle: lifecycle/super-coffee-lifecycle.yml
+  mcp: mcp/super-coffee-mcp.yml
+  conformance: conformance/super-coffee-conformance.yml
+x-evidence:
+  fetched: '2026-08-05'
+  urls:
+  - url: https://www.drinksupercoffee.com/api/ucp/mcp
+    http_status: 200
+  - url: https://www.drinksupercoffee.com/llms.txt
+    http_status: 200
+  - url: https://www.drinksupercoffee.com/robots.txt
+    http_status: 200

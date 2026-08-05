@@ -1,0 +1,41 @@
+generated: '2026-08-05'
+method: searched
+source: https://www.drinksupercoffee.com/.well-known/openid-configuration
+note: >-
+  Scopes are read verbatim from the storefront's live OIDC/OAuth discovery
+  documents (scopes_supported). No OpenAPI exists for this provider, so nothing
+  here is derived from a spec. The authorization server is Shopify's customer
+  account service for shop id 14905858.
+schemes:
+- name: shopify-customer-account-oauth2
+  source: https://www.drinksupercoffee.com/.well-known/oauth-authorization-server
+  issuer: https://shopify.com/authentication/14905858
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://shopify.com/authentication/14905858/oauth/authorize
+    tokenUrl: https://shopify.com/authentication/14905858/oauth/token
+scopes:
+- scope: openid
+  description: Standard OpenID Connect scope; requests an ID token identifying the
+    customer.
+  flows: [authorizationCode]
+  sources: [https://www.drinksupercoffee.com/.well-known/openid-configuration]
+- scope: email
+  description: Releases the customer's email address and email_verified claim.
+  flows: [authorizationCode]
+  sources: [https://www.drinksupercoffee.com/.well-known/openid-configuration]
+- scope: customer-account-api:full
+  description: Full access to the Shopify Customer Account API on behalf of the signed-in
+    customer (orders, addresses, profile).
+  flows: [authorizationCode]
+  sources: [https://www.drinksupercoffee.com/.well-known/openid-configuration]
+- scope: customer-account-mcp-api:full
+  description: Full access to the Shopify Customer Account MCP API on behalf of the
+    signed-in customer - the authenticated, customer-scoped counterpart to the anonymous
+    UCP commerce MCP endpoint.
+  flows: [authorizationCode]
+  sources: [https://www.drinksupercoffee.com/.well-known/openid-configuration]
+x-evidence:
+  fetched: '2026-08-05'
+  url: https://www.drinksupercoffee.com/.well-known/openid-configuration
+  http_status: 200

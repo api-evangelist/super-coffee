@@ -1,23 +1,99 @@
 aid: super-coffee
 name: Super Coffee
-description: 'Super Coffee is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Super Coffee is the ready-to-drink coffee brand operated by Kitu Life,
+  Inc., founded in 2015 by brothers Jordan, Jake and Jim DeCicco and distributed across
+  tens of thousands of US retail locations alongside a direct-to-consumer online store
+  at drinksupercoffee.com. The company is not a software vendor and publishes no developer
+  program, but its Shopify-hosted storefront exposes a real, anonymous, machine-readable
+  agent commerce surface: an /llms.txt and /agents.md agent instruction set, a Universal
+  Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a live MCP endpoint at
+  /api/ucp/mcp serving 13 catalog, cart, checkout and order tools with full JSON Schema
+  inputs, and OAuth 2.0 / OpenID Connect discovery documents for Shopify customer
+  accounts. Checkout is explicitly gated on contemporaneous human approval.'
 url: https://raw.githubusercontent.com/api-evangelist/super-coffee/refs/heads/main/apis.yml
+image: https://www.drinksupercoffee.com/cdn/shop/files/super_coffee_logo_49f6a156-94a1-46e2-9440-f09c07a4bf74.jpg?v=1623443564&width=2048
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-05'
 modified: '2026-08-05'
+x-enrichment:
+  date: '2026-08-05'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1
 tags:
 - Company
-apis: []
+- Food and Beverage
+- Consumer Packaged Goods
+- Retail
+- E-Commerce
+- Agentic Commerce
+- Universal Commerce Protocol
+- Model Context Protocol
+- Shopify
+apis:
+- aid: super-coffee-ucp-mcp
+  name: Super Coffee UCP Commerce MCP
+  description: 'The Universal Commerce Protocol (UCP) shopping service that Super Coffee''s
+    storefront implements over MCP transport. An anonymous tools/list returns 13 tools
+    covering catalog search and lookup, product detail, cart create/read/update/cancel,
+    checkout create/read/update/complete/cancel, and order retrieval, each carrying a
+    full JSON Schema draft 2020-12 inputSchema. Payment completion requires explicit
+    contemporaneous buyer approval; the endpoint is rate limited per IP.'
+  humanURL: https://www.drinksupercoffee.com/agents.md
+  baseURL: https://www.drinksupercoffee.com/api/ucp/mcp
+  tags:
+  - Agentic Commerce
+  - Model Context Protocol
+  - Universal Commerce Protocol
+  - E-Commerce
+  properties:
+  - type: MCPServer
+    url: mcp/super-coffee-mcp.yml
+  - type: Documentation
+    url: https://www.drinksupercoffee.com/agents.md
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/super-coffee-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/super-coffee_stock/
+  url: https://www.drinksupercoffee.com/
+- type: Documentation
+  url: https://www.drinksupercoffee.com/agents.md
+- type: Support
+  url: https://help.drinksupercoffee.com/
+- type: Blog
+  url: https://www.drinksupercoffee.com/blogs/news
+- type: Pricing
+  url: https://www.drinksupercoffee.com/collections/all
+- type: SignUp
+  url: https://www.drinksupercoffee.com/account/login
+- type: TermsOfService
+  url: https://www.drinksupercoffee.com/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.drinksupercoffee.com/policies/privacy-policy
+- type: LLMsTxt
+  url: llms/super-coffee-llms.txt
+- type: MCPServer
+  url: mcp/super-coffee-mcp.yml
+- type: WellKnown
+  url: well-known/super-coffee-well-known.yml
+- type: Authentication
+  url: authentication/super-coffee-authentication.yml
+- type: OAuthScopes
+  url: scopes/super-coffee-scopes.yml
+- type: Conformance
+  url: conformance/super-coffee-conformance.yml
+- type: Conventions
+  url: conventions/super-coffee-conventions.yml
+- type: Idempotency
+  url: conventions/super-coffee-conventions.yml
+- type: Lifecycle
+  url: lifecycle/super-coffee-lifecycle.yml
+- type: AgentSkill
+  url: skills/_index.yml

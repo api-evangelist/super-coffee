@@ -1,0 +1,93 @@
+generated: '2026-08-05'
+method: searched
+source: https://www.drinksupercoffee.com/.well-known/ucp
+note: >-
+  Conformance is asserted from documents the storefront actually serves. Super
+  Coffee does not publish a compliance program (no SOC 2 / ISO 27001 / PCI
+  attestation page was found), so no Compliance pointer is emitted.
+standards:
+- id: ucp-2026-04-08
+  name: Universal Commerce Protocol 2026-04-08
+  conforms: true
+  evidence: /.well-known/ucp advertises version 2026-04-08 with dev.ucp.shopping service
+    and checkout/cart/catalog/fulfillment/discount/order capabilities
+  spec: https://ucp.dev/2026-04-08/specification/overview/
+- id: ucp-2026-01-23
+  name: Universal Commerce Protocol 2026-01-23
+  conforms: true
+  evidence: listed under supported_versions in /.well-known/ucp
+- id: mcp
+  name: Model Context Protocol
+  conforms: true
+  evidence: POST /api/ucp/mcp returns a JSON-RPC 2.0 tools/list result with 13 tools,
+    each carrying an inputSchema
+- id: json-schema-2020-12
+  name: JSON Schema draft 2020-12
+  conforms: true
+  evidence: every MCP tool inputSchema declares $schema https://json-schema.org/draft/2020-12/schema
+- id: jsonrpc-2.0
+  name: JSON-RPC 2.0
+  conforms: true
+  evidence: MCP endpoint responds with jsonrpc "2.0" envelopes
+- id: oauth2
+  name: OAuth 2.0
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server publishes authorization and token
+    endpoints with authorization_code and refresh_token grants
+- id: rfc8414-oauth-authorization-server-metadata
+  name: RFC 8414 OAuth 2.0 Authorization Server Metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with issuer, token_endpoint,
+    authorization_endpoint, jwks_uri
+- id: oidc-discovery
+  name: OpenID Connect Discovery 1.0
+  conforms: true
+  evidence: /.well-known/openid-configuration returns 200 with RS256 id_token signing
+    and standard claims
+- id: rfc7636-pkce
+  name: RFC 7636 PKCE
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256
+- id: llmstxt
+  name: llms.txt
+  conforms: true
+  evidence: /llms.txt returns 200 text/markdown with an agent instruction set mirroring
+    /agents.md
+- id: rfc8615-well-known
+  name: RFC 8615 Well-Known URIs
+  conforms: true
+  evidence: serves /.well-known/ucp, /.well-known/openid-configuration, /.well-known/oauth-authorization-server
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json both 404 on drinksupercoffee.com,
+    www.drinksupercoffee.com and sunniva.myshopify.com
+- id: rfc9116-security-txt
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404
+- id: rfc9727-api-catalog
+  name: RFC 9727 API Catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returns 404
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: no OpenAPI served on the storefront or API host; the UCP shopping service
+    is described by a third-party OpenRPC schema at ucp.dev, not by a Super Coffee
+    spec
+- id: rfc9457-problem-details
+  name: RFC 9457 Problem Details
+  conforms: false
+  evidence: no problem+json error contract documented
+x-evidence:
+  fetched: '2026-08-05'
+  urls:
+  - url: https://www.drinksupercoffee.com/.well-known/ucp
+    http_status: 200
+  - url: https://www.drinksupercoffee.com/api/ucp/mcp
+    http_status: 200
+  - url: https://www.drinksupercoffee.com/.well-known/security.txt
+    http_status: 404
+  - url: https://www.drinksupercoffee.com/.well-known/agent-card.json
+    http_status: 404

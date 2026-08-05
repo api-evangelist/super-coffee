@@ -1,0 +1,56 @@
+generated: '2026-08-05'
+method: searched
+source: https://www.drinksupercoffee.com/.well-known/ucp
+note: >-
+  Super Coffee publishes no developer changelog, SLA, status page or deprecation
+  policy of its own. What it does publish is a dated protocol-version contract in
+  its UCP merchant profile, which is what is recorded here. Absence of the other
+  fields is recorded, not inferred.
+versioning:
+  scheme: dated protocol version (UCP)
+  current: '2026-04-08'
+  supported:
+  - version: '2026-04-08'
+    status: latest stable
+    profile: https://sunniva.myshopify.com/.well-known/ucp/2026-04-08
+  - version: '2026-01-23'
+    status: supported
+    profile: https://sunniva.myshopify.com/.well-known/ucp/2026-01-23
+  negotiation: >-
+    Agents pin a version by fetching /.well-known/ucp/<version>; capability entries
+    carry requires.protocol.min constraints (fulfillment, discount and
+    dev.shopify.catalog all require min 2026-04-08).
+  docs: https://ucp.dev/2026-04-08/specification/overview/
+  upstream_owner: >-
+    The version train is defined by the Universal Commerce Protocol and implemented
+    by Shopify; Super Coffee consumes it rather than authoring it.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  found: false
+  note: No RFC 8594 Sunset/Deprecation policy published by the merchant.
+sla:
+  url: null
+  uptime_target: null
+  found: false
+status_page:
+  url: null
+  found: false
+  probed:
+  - url: https://status.drinksupercoffee.com/
+    result: did not resolve
+changelog:
+  url: null
+  found: false
+support:
+  help_center: https://help.drinksupercoffee.com/
+deprecated_operations: []
+x-evidence:
+  fetched: '2026-08-05'
+  urls:
+  - url: https://www.drinksupercoffee.com/.well-known/ucp
+    http_status: 200
+  - url: https://www.drinksupercoffee.com/.well-known/ucp/2026-04-08
+    http_status: 200
+  - url: https://help.drinksupercoffee.com/
+    http_status: 200

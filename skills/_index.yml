@@ -1,0 +1,19 @@
+generated: '2026-08-05'
+method: generated
+source: mcp/super-coffee-mcp-tools.json + https://www.drinksupercoffee.com/llms.txt
+note: >-
+  Super Coffee publishes no OpenAPI, so these skills are grounded in the 13 MCP
+  tool names and inputSchemas returned by a live anonymous tools/list against
+  https://www.drinksupercoffee.com/api/ucp/mcp on 2026-08-05, plus the agent rules
+  the store publishes in /llms.txt, /agents.md and /robots.txt. No tool, field or
+  rule below is invented.
+skills:
+- file: super-coffee-agentic-purchase.md
+  name: Buy Super Coffee products as an agent via UCP/MCP
+  api: mcp/super-coffee-mcp.yml
+  operations: [search_catalog, get_product, create_cart, update_cart, create_checkout,
+    update_checkout, complete_checkout, get_order]
+- file: super-coffee-catalog-research.md
+  name: Read the Super Coffee catalog without transacting
+  api: mcp/super-coffee-mcp.yml
+  operations: [search_catalog, lookup_catalog, get_product]
