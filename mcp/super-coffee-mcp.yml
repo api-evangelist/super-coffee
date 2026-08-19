@@ -18,8 +18,8 @@ server:
   - '2026-04-08'
   - '2026-01-23'
   ucp_schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
-  authentication: none required for tools/list and catalog reads; checkout completion
-    requires an approved buyer payment instrument
+  authentication: none required for tools/list and catalog reads; checkout completion requires an approved
+    buyer payment instrument
   rate_limited: true
   rate_limit_note: Rate limited per IP; agents are instructed to back off on 429.
 platform: Shopify (shop id 14905858, sunniva.myshopify.com)
@@ -37,61 +37,90 @@ tool_count: 13
 tools:
 - name: search_catalog
   category: catalog
-  description: Search for products from the online store using natural language queries,
-    filter criteria, or both.
-  required: [meta, catalog]
+  description: Search for products from the online store using natural language queries, filter criteria,
+    or both.
+  required:
+  - meta
+  - catalog
 - name: lookup_catalog
   category: catalog
   description: Look up multiple products or variants by identifier in a single request.
-  required: [meta, catalog]
+  required:
+  - meta
+  - catalog
 - name: get_product
   category: catalog
-  description: Retrieve complete product detail by identifier, with variants, exact
-    pricing and real-time availability.
-  required: [meta, catalog]
+  description: Retrieve complete product detail by identifier, with variants, exact pricing and real-time
+    availability.
+  required:
+  - meta
+  - catalog
 - name: create_cart
   category: cart
   description: Creates a new cart.
-  required: [meta, cart]
+  required:
+  - meta
+  - cart
 - name: get_cart
   category: cart
   description: Get the cart contents.
-  required: [meta, id]
+  required:
+  - meta
+  - id
 - name: update_cart
   category: cart
   description: Perform updates to a cart.
-  required: [meta, cart, id]
+  required:
+  - meta
+  - cart
+  - id
 - name: cancel_cart
   category: cart
   description: Cancels a cart.
-  required: [meta, id]
+  required:
+  - meta
+  - id
 - name: create_checkout
   category: checkout
   description: Creates a checkout. Returns line items, totals, discounts and taxes.
-  required: [meta, checkout]
+  required:
+  - meta
+  - checkout
 - name: get_checkout
   category: checkout
-  description: Returns details about the checkout, including line items, totals, and
-    any applicable discounts or taxes.
-  required: [meta, id]
+  description: Returns details about the checkout, including line items, totals, and any applicable discounts
+    or taxes.
+  required:
+  - meta
+  - id
 - name: update_checkout
   category: checkout
   description: Updates a checkout (e.g. shipping address and method).
-  required: [meta, checkout, id]
+  required:
+  - meta
+  - checkout
+  - id
 - name: complete_checkout
   category: checkout
-  description: Completes a checkout and returns the order ID, Thank You Page URL, or
-    errors. Requires explicit contemporaneous buyer approval of payment.
-  required: [meta, id, checkout]
+  description: Completes a checkout and returns the order ID, Thank You Page URL, or errors. Requires
+    explicit contemporaneous buyer approval of payment.
+  required:
+  - meta
+  - id
+  - checkout
   human_approval_required: true
 - name: cancel_checkout
   category: checkout
   description: Cancels a checkout.
-  required: [meta, id]
+  required:
+  - meta
+  - id
 - name: get_order
   category: order
   description: Get the details of an order.
-  required: [meta, id]
+  required:
+  - meta
+  - id
 capabilities:
 - dev.ucp.shopping.catalog.search
 - dev.ucp.shopping.catalog.lookup
@@ -111,3 +140,11 @@ payment_handlers:
 - id: shop_pay
   handler: dev.shopify.shop_pay
   version: '2026-04-08'
+deployment:
+  mode: remote
+  endpoint: https://www.drinksupercoffee.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
