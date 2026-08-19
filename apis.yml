@@ -14,7 +14,7 @@ url: https://raw.githubusercontent.com/api-evangelist/super-coffee/refs/heads/ma
 image: https://www.drinksupercoffee.com/cdn/shop/files/super_coffee_logo_49f6a156-94a1-46e2-9440-f09c07a4bf74.jpg?v=1623443564&width=2048
 x-type: company
 x-source: harvest:secondary-market
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-05'
 modified: '2026-08-05'
 x-enrichment:
