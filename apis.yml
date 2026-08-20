@@ -30,6 +30,16 @@ tags:
 - E-Commerce
 - Agentic Commerce
 - Universal Commerce Protocol
+- MCP
+- Shopify
+tags_raw:
+- Company
+- Food and Beverage
+- Consumer Packaged Goods
+- Retail
+- E-Commerce
+- Agentic Commerce
+- Universal Commerce Protocol
 - Model Context Protocol
 - Shopify
 apis:
@@ -44,6 +54,11 @@ apis:
   humanURL: https://www.drinksupercoffee.com/agents.md
   baseURL: https://www.drinksupercoffee.com/api/ucp/mcp
   tags:
+  - Agentic Commerce
+  - MCP
+  - Universal Commerce Protocol
+  - E-Commerce
+  tags_raw:
   - Agentic Commerce
   - Model Context Protocol
   - Universal Commerce Protocol
