@@ -11,6 +11,17 @@ description: 'Super Coffee is the ready-to-drink coffee brand operated by Kitu L
   inputs, and OAuth 2.0 / OpenID Connect discovery documents for Shopify customer
   accounts. Checkout is explicitly gated on contemporaneous human approval.'
 url: https://raw.githubusercontent.com/api-evangelist/super-coffee/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.drinksupercoffee.com/cdn/shop/files/super_coffee_logo_49f6a156-94a1-46e2-9440-f09c07a4bf74.jpg?v=1623443564&width=2048
 x-type: company
 x-source: harvest:secondary-market
