@@ -1,15 +1,14 @@
 aid: super-coffee
 name: Super Coffee
-description: 'Super Coffee is the ready-to-drink coffee brand operated by Kitu Life,
-  Inc., founded in 2015 by brothers Jordan, Jake and Jim DeCicco and distributed across
-  tens of thousands of US retail locations alongside a direct-to-consumer online store
-  at drinksupercoffee.com. The company is not a software vendor and publishes no developer
-  program, but its Shopify-hosted storefront exposes a real, anonymous, machine-readable
-  agent commerce surface: an /llms.txt and /agents.md agent instruction set, a Universal
-  Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a live MCP endpoint at
-  /api/ucp/mcp serving 13 catalog, cart, checkout and order tools with full JSON Schema
-  inputs, and OAuth 2.0 / OpenID Connect discovery documents for Shopify customer
-  accounts. Checkout is explicitly gated on contemporaneous human approval.'
+description: 'Super Coffee is the ready-to-drink coffee brand operated by Kitu Life, Inc., founded in
+  2015 by brothers Jordan, Jake and Jim DeCicco and distributed across tens of thousands of US retail
+  locations alongside a direct-to-consumer online store at drinksupercoffee.com. The company is not a
+  software vendor and publishes no developer program, but its Shopify-hosted storefront exposes a real,
+  anonymous, machine-readable agent commerce surface: an /llms.txt and /agents.md agent instruction set,
+  a Universal Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a live MCP endpoint at /api/ucp/mcp
+  serving 13 catalog, cart, checkout and order tools with full JSON Schema inputs, and OAuth 2.0 / OpenID
+  Connect discovery documents for Shopify customer accounts. Checkout is explicitly gated on contemporaneous
+  human approval.'
 url: https://raw.githubusercontent.com/api-evangelist/super-coffee/refs/heads/main/apis.yml
 deliveryModel:
   model: saas
@@ -68,14 +67,13 @@ tags_raw:
 - Model Context Protocol
 - Shopify
 apis:
-- aid: super-coffee-ucp-mcp
+- aid: super-coffee:super-coffee-ucp-mcp
   name: Super Coffee UCP Commerce MCP
-  description: 'The Universal Commerce Protocol (UCP) shopping service that Super Coffee''s
-    storefront implements over MCP transport. An anonymous tools/list returns 13 tools
-    covering catalog search and lookup, product detail, cart create/read/update/cancel,
-    checkout create/read/update/complete/cancel, and order retrieval, each carrying a
-    full JSON Schema draft 2020-12 inputSchema. Payment completion requires explicit
-    contemporaneous buyer approval; the endpoint is rate limited per IP.'
+  description: The Universal Commerce Protocol (UCP) shopping service that Super Coffee's storefront implements
+    over MCP transport. An anonymous tools/list returns 13 tools covering catalog search and lookup, product
+    detail, cart create/read/update/cancel, checkout create/read/update/complete/cancel, and order retrieval,
+    each carrying a full JSON Schema draft 2020-12 inputSchema. Payment completion requires explicit contemporaneous
+    buyer approval; the endpoint is rate limited per IP.
   humanURL: https://www.drinksupercoffee.com/agents.md
   baseURL: https://www.drinksupercoffee.com/api/ucp/mcp
   tags:
