@@ -2,49 +2,10 @@ generated: '2026-08-05'
 method: searched
 source: https://www.drinksupercoffee.com/.well-known/
 host: https://www.drinksupercoffee.com
-notes: >-
-  Super Coffee's storefront is hosted on Shopify (shop id 14905858, myshopify
-  handle sunniva.myshopify.com). The OAuth/OIDC discovery documents describe
-  Shopify's customer-account authorization server, not a Super Coffee-operated
-  IdP. The /.well-known/ucp merchant profile is store-specific and names Super
-  Coffee as the merchant.
-documents:
-- path: /.well-known/ucp
-  description: Universal Commerce Protocol merchant profile (services, capabilities,
-    payment handlers)
-  status: 200
-  content_type: application/json
-  file: super-coffee-ucp.json
-- path: /.well-known/ucp/2026-04-08
-  description: Version-pinned UCP merchant profile
-  status: 200
-  content_type: application/json
-- path: /.well-known/openid-configuration
-  description: OpenID Connect discovery (RFC 8414 / OIDC Discovery 1.0) for Shopify
-    customer accounts
-  status: 200
-  content_type: application/json
-  file: super-coffee-openid-configuration.json
-- path: /.well-known/oauth-authorization-server
-  description: OAuth 2.0 Authorization Server Metadata (RFC 8414); byte-identical to
-    the openid-configuration document
-  status: 200
-  content_type: application/json
-  file: super-coffee-oauth-authorization-server.json
-- path: /.well-known/security.txt
-  description: RFC 9116 security contact
-  status: 404
-- path: /.well-known/api-catalog
-  description: RFC 9727 API catalog
-  status: 404
-- path: /.well-known/ai-plugin.json
-  status: 404
-- path: /.well-known/agent-card.json
-  description: A2A 1.0.0 agent card
-  status: 404
-- path: /.well-known/agent.json
-  description: Pre-0.3 legacy A2A agent card path
-  status: 404
+notes: Super Coffee's storefront is hosted on Shopify (shop id 14905858, myshopify handle sunniva.myshopify.com).
+  The OAuth/OIDC discovery documents describe Shopify's customer-account authorization server, not a Super
+  Coffee-operated IdP. The /.well-known/ucp merchant profile is store-specific and names Super Coffee
+  as the merchant.
 related:
 - path: /llms.txt
   description: Agent instruction set (mirrors /agents.md)
@@ -56,8 +17,8 @@ related:
   status: 200
   file: ../llms/super-coffee-agents.md
 - path: /robots.txt
-  description: Carries explicit agent policy - points agents at UCP/MCP and forbids
-    automated checkout completion without human approval
+  description: Carries explicit agent policy - points agents at UCP/MCP and forbids automated checkout
+    completion without human approval
   status: 200
 x-evidence:
   fetched: '2026-08-05'
@@ -65,3 +26,36 @@ x-evidence:
   - www.drinksupercoffee.com
   - drinksupercoffee.com
   - sunniva.myshopify.com
+hosts:
+- host: https://www.drinksupercoffee.com
+  documents:
+  - path: /.well-known/ucp
+    status: 200
+    file: super-coffee-ucp.json
+    content_type: application/json
+  - path: /.well-known/ucp/2026-04-08
+    status: 200
+    content_type: application/json
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: super-coffee-openid-configuration.json
+    content_type: application/json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: super-coffee-oauth-authorization-server.json
+    content_type: application/json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+x-shape-fix:
+  converted: '2026-08-20'
+  from: documents
+  note: Rewritten into hosts[] -> documents[], the only shape well_known_docs() in score.rb reads. A served
+    .well-known surface recorded in any other shape scores as absent.
