@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/super-coffee/integrations
+- https://n8n.io/integrations/super-coffee/
+- https://composio.dev/toolkits/super-coffee
+- https://monid.ai/tools/super-coffee
+checked:
+- https://composio.dev/toolkits/super-coffee
+- https://monid.ai/tools/super-coffee
+- https://n8n.io/integrations/super-coffee/
+- https://zapier.com/apps/super-coffee/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
