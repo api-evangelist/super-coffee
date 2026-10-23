@@ -9,13 +9,17 @@
       "method": "discovered"
     },
     {
-      "source": "https://help.drinksupercoffee.com/",
-      "feed_url": "https://help.drinksupercoffee.com/",
+      "source": "https://www.drinksupercoffee.com/blogs/news.atom",
+      "feed_url": "https://www.drinksupercoffee.com/blogs/news.atom",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "feed"
+    },
+    {
+      "source": "https://help.drinksupercoffee.com/",
+      "error": "URLError"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-10-10T13:15:00Z"
+  "post_count": 1,
+  "fetched": "2026-10-17T14:53:57Z"
 }
