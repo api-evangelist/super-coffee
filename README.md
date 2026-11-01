@@ -64,5 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Super Coffee is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/super-coffee_stock/
+Super Coffee is the ready-to-drink coffee brand operated by Kitu Life, Inc., founded in 2015 by brothers Jordan, Jake and Jim DeCicco and distributed across tens of thousands of US retail locations alongside a direct-to-consumer online store at drinksupercoffee.com. The company is not a software vendor and publishes no developer program, but its Shopify-hosted storefront exposes a real, anonymous, machine-readable agent commerce surface: an /llms.txt and /agents.md agent instruction set, a Universal Commerce Protocol (UCP) merchant profile at /.well-known/ucp, a live MCP endpoint at /api/ucp/mcp serving 13 catalog, cart, checkout and order tools with full JSON Schema inputs, and OAuth 2.0 / OpenID Connect discovery documents for Shopify customer accounts. Checkout is explicitly gated on contemporaneous human approval.
+
+**Areas:** Company · Food and Beverage · Consumer Packaged Goods · Retail · E-Commerce · Agentic Commerce · Universal Commerce Protocol · MCP · Shopify
+
+## Super Coffee on APIs.io
+
+Everything profiled for Super Coffee is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/super-coffee/](https://apis.io/providers/super-coffee/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Super Coffee UCP Commerce MCP](https://apis.io/apis/super-coffee/super-coffee-ucp-mcp/) — The Universal Commerce Protocol (UCP) shopping service that Super Coffee's storefront implements over MCP transport. An anonymous tools/list returns 13…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [super-coffee-ucp](https://apis.io/servers/super-coffee/super-coffee-ucp/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Super Coffee Authentication](https://apis.io/security/super-coffee/super-coffee-authentication/)
+- [Super Coffee Domain Security](https://apis.io/security/super-coffee/super-coffee-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Super Coffee Scopes](https://apis.io/scopes/super-coffee/super-coffee-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.drinksupercoffee.com/)
+- [Documentation](https://www.drinksupercoffee.com/agents.md)
+- [Pricing](https://www.drinksupercoffee.com/collections/all)
+- [Sign up](https://www.drinksupercoffee.com/account/login)
+- [Support](https://help.drinksupercoffee.com/)
+- [Blog](https://www.drinksupercoffee.com/blogs/news)
+- [Terms of service](https://www.drinksupercoffee.com/policies/terms-of-service)
+- [Privacy policy](https://www.drinksupercoffee.com/policies/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 26.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 25.6 |
+| Access clarity | 44.7 |
+
+**Agent readiness 18.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/super-coffee/](https://apis.io/providers/super-coffee/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Super Coffee: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/super-coffee/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
